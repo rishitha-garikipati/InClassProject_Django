@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action ="POST" class="post-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="fieldWrapper">
+                {{field.label_tag}} {{field}}
+            </div>
+        {% endfor %}
+        <input type="Submit" class ="save btn btn-primary" value="SAVE"/>
+    </form>
+</body>
+</html>

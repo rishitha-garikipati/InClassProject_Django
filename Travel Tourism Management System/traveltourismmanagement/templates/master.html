@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Travel Tourism Management{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>     <div class="container">
+         <ul class="nav bg-info">
+             <li class="nav-item">
+                 <a class="nav-link link-light" href="home">Home</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link link-light" href="addStudent">Add Student</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link link-light" href="contact">Contact Us</a>
+             </li>
+              <li class="nav-item">
+                 <a class="nav-link link-light" href="viewStudent">View Students</a>
+             </li>
+         </ul>
+         {% block content %}
+         {% endblock %}
+</div>
+</body>
+</html>
