@@ -4,11 +4,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import requests
 from .models import contactus
-
 # Create your views here.
 def home(request):
     return render(request,"home.html")
-
 def weatherinfo(request):
     if request.method == 'POST':
         place = request.POST['place']
