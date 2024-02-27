@@ -1,6 +1,7 @@
 from django.urls import path
-from django.views.generic import TemplateView
+from .views import CreateMovieListView, AllMoviesListView
 
 urlpatterns = [
-    path('movies/',TemplateView.as_view(template_name="index.html")),
+    path('movies/',CreateMovieListView.as_view(),name="movie-list-create"),
+    path('movies/all/',AllMoviesListView.as_view(),name="all-movies-list",)
 ]
