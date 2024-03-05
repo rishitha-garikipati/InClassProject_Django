@@ -1,11 +1,25 @@
-<!DOCTYPE html>
+{% extends 'Navbar.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body bgcolor="yellow">
-<h1 align="center">Welcome to Rest Framework</h1>
-
+<body>
+    {% block body %}
+        <br><br><br>
+        <center>
+            <form action="{% url 'generateotp' %}" method="post">
+                {% csrf_token %}
+                <b>Enter no of digits:</b>
+                <input type="text" name="length"/>
+                <br><br>
+                <input type="submit" value="Generate OTP">
+                <br><br>
+                {% if otp %}
+                    <span><b>Generated OTP:{{otp}}</b></span>
+                {% endif %}
+            </form>
+        </center>
+    {% endblock %}
 </body>
 </html>
