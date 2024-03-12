@@ -1,0 +1,12 @@
+nav{
+background-color:aquamarine;
+padding:16px 32px:
+}
+
+nav a{
+margin-left: 16px;
+}
+
+nav a.active{
+text-decoration:none !important;
+font-weight:bold;
