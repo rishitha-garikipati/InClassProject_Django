@@ -1,3 +1,4 @@
+from random import random
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
@@ -47,3 +48,12 @@ def contactmail(request):
     else:
         HttpResponse("<h1>error</h1>")
     return render(request,'Contact.html')
+
+def generateotp(request):
+    otp = ""
+    if request.method == "POST":
+        length = int(request.POST['length'])
+        for _ in range(length):
+            otp += str(random.randint(0,9))
+        return render(request,"index.html",{'otp': otp})
+    return render(request,"index.html",{'otp': otp})
