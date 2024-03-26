@@ -1,0 +1,112 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        /* Custom Styles */
+        .custom-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .custom-container h1 {
+            text-align: center;
+        }
+        .custom-container .form-group label {
+            font-weight: bold;
+        }
+        .custom-container .form-group input[type="text"],
+        .custom-container .form-group input[type="number"],
+        .custom-container .form-group textarea,
+        .custom-container .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .custom-container .form-group input[type="checkbox"] {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            margin-left: 5px;
+        }
+        .custom-container .form-group button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .custom-container .form-group button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        li:hover {
+            background-color: #e9e9e9;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <h1>Add Product</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="pid">Id:</label>
+                <input type="text" id="pid" name="pid">
+            </div>
+           <div class="form-group">
+                <label for="pname">Name:</label>
+                <input type="text" id="pname" name="pname">
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price">
+            </div>
+
+             <div class="form-group">
+                <button type="submit">Add Product</button>
+            </div>
+        </form>
+        {% if products %}
+            <h2>Added Products</h2>
+            <ul>
+                {% for product in products %}
+                    <li>{{ product.pname }} - {{ product.price }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    </div>
+</body>
+{% endblock %}
+</html>
